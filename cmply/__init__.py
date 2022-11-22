@@ -85,7 +85,7 @@ def _json_result(args, rule_name, output, status):
             } for i in output[1]]
         })
 
-def _print_docker_output(result):
+def _print_docker_output(args, result):
     for line_exec in result[1]:
         exit_message = None
         if line_exec[0] == 0:
@@ -99,11 +99,11 @@ def _print_docker_output(result):
 
 def _print_result(args, result):
     if args.verbose:
-        _print_docker_output(result)
+        _print_docker_output(args, result)
 
 def _print_fail_only(args, result):
     if (not args.verbose) and (not args.hide_fail):
-        _print_docker_output(result)
+        _print_docker_output(args, result)
 
 def _verbose(args, message):
     if args.verbose:
