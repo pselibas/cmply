@@ -192,8 +192,9 @@ Description:
                 tags=",".join(rule['tags'])))
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description="Run compliance checks against a project")
+    parser.set_defaults(func=lambda args: parser.print_help())
     subparsers = parser.add_subparsers()
 
     parser_run = subparsers.add_parser('run')
@@ -214,4 +215,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     args.func(args)
+
+if __name__ == "__main__":
+    main()
 
