@@ -1,0 +1,11 @@
+name: node-lock
+description: |
+  Verifies that this node application has a yarn.lock OR package-lock.json.
+  This file is important, must exist and be committed into the git repo. 
+  See https://docs.npmjs.com/cli/v9/configuring-npm/package-lock-json for more information.
+image: node:16
+type: fail
+tags:
+  - node
+steps:
+  - test -f yarn.lock || test -f package-lock.json

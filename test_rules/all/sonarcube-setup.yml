@@ -1,0 +1,9 @@
+name: sonarcube-setup
+description: |
+  All projects must be registered in sonarcube
+image: node:16
+type: fail
+tags:
+  - all
+steps:
+  - test -f sonar-project.properties

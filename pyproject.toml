@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "comply"
+name = "cmply"
 version = "0.1.0"
 description = "A simple tool to validate if a repository adhears to specified rules."
 authors = ["Paul Selibas <pselibas@gmail.com>"]
@@ -7,7 +7,7 @@ license = "MIT License"
 readme = "README.md"
 packages = [
     { include = "docker_runner" },
-    { include = "comply" }
+    { include = "cmply" }
 ]
 
 [tool.poetry.dependencies]
@@ -23,4 +23,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-comply = 'comply:main'
+cmply = 'cmply:main'

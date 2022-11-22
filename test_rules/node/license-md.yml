@@ -1,0 +1,12 @@
+name: license-md
+description: |
+  Check for invalid licensing hanging around
+image: node:16
+type: fail
+tags:
+  - node
+steps:
+  - '[[ -f LICENSE.md ]] && ! grep "MIT Lic" LICENSE.md'
+  - '! grep "MIT" package.json'
+
+  

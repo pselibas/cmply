@@ -1,0 +1,10 @@
+name: node-audit-critical
+description: |
+  Runs yarn audit on dependencies looking for high and critical issues.
+image: node:16
+type: security
+tags:
+  - node
+steps:
+  - '[[ -f yarn.lock ]] && yarn audit --level critical --groups dependencies'
+  - '[[ -f package-lock.json ]] && npm audit --audit-level=critical --omit=dev'
