@@ -106,11 +106,11 @@ def _print_fail_only(args, result):
 
 def _verbose(args, message):
     if args.verbose:
-        print(message)
+        print(message.encode(sys.stdout.encoding, errors='replace').decode('utf8'))
 
 def _print(args, message, end="\n"):
     if args.output == None:
-        print(message, end=end)
+        print(message.encode(sys.stdout.encoding, errors='replace').decode('utf8'), end=end)
 
 def is_git_target(target):
     return target.startswith('http') or target.startswith('git') or target.startswith('ssh')
