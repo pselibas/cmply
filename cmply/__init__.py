@@ -80,7 +80,7 @@ def _json_result(args, rule_name, output, status):
             "steps": [{
                 "exitCode": i[0],
                 "step": i[1],
-                "output": i[2].decode("utf-8")
+                "output": i[2]
             } for i in output[1]]
         })
 
@@ -94,7 +94,7 @@ def _print_docker_output(args, result):
 
         _print(args, "\t" + line_exec[1] + exit_message)
         for line in line_exec[2].splitlines():
-            _print(args, '\t\t'+ line.decode("utf-8"))
+            _print(args, '\t\t'+ line)
 
 def _print_result(args, result):
     if args.verbose:

@@ -23,7 +23,7 @@ def execute_instruction(container, instruction):
     exec_id = client.api.exec_create(container, cmd=["bash", "-c", instruction])
     output = client.api.exec_start(exec_id)
     inspect = client.api.exec_inspect(exec_id)
-    return [inspect['ExitCode'], instruction, output]
+    return [inspect['ExitCode'], instruction, output.decode("utf-8")]
 
 def execute_steps(image, local_dir, steps, env):
     container = build_container(image, local_dir, env)
