@@ -1,5 +1,4 @@
 docker
 pyyaml
-termcolor
 GitPython
 schema

@@ -1,0 +1,9 @@
+name: failed test
+description: |
+  failed test
+image: node:16
+type: fail
+tags:
+  - all
+steps:
+  - exit 1

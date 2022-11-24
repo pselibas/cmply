@@ -6,17 +6,16 @@ import glob
 import json
 from schema import Schema, SchemaError, Or
 from textwrap import wrap
-from termcolor import colored
 from docker_runner import execute_steps
 from git import Repo
 from tempfile import TemporaryDirectory
 
 STATUS_CHARACTERS = {
-    "pass": ' ✓',
-    "warning": ' !',
-    "security": ' ✘!',
-    "fail": ' ✘',
-    "info": ' i'
+    "pass": ' (pass)',
+    "warning": ' * (warning)',
+    "security": ' !! (security)',
+    "fail": ' ! (fail)',
+    "info": ' i (info)'
 }
 
 RULE_SCHEMA = Schema({
@@ -89,11 +88,11 @@ def _print_docker_output(args, result):
     for line_exec in result[1]:
         exit_message = None
         if line_exec[0] == 0:
-            exit_message =  " (Exit Code: "+ colored("0", 'green') + ")"
+            exit_message =  " (Exit Code: 0)"
         else:
-            exit_message = " (Exit Code: "+ colored(line_exec[0], 'red') + ")"
+            exit_message = " (Exit Code: "+ line_exec[0] + ")"
 
-        _print(args, "\t" + colored(line_exec[1], attrs=['underline']) + exit_message)
+        _print(args, "\t" + line_exec[1] + exit_message)
         for line in line_exec[2].splitlines():
             _print(args, '\t\t'+ line.decode("utf-8"))
 
