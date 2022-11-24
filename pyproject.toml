@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cmply"
-version = "0.1.4"
+version = "0.1.5"
 description = "A simple tool to validate if a repository adhears to specified rules."
 authors = ["Paul Selibas <pselibas@gmail.com>"]
 license = "MIT License"

@@ -90,7 +90,7 @@ def _print_docker_output(args, result):
         if line_exec[0] == 0:
             exit_message =  " (Exit Code: 0)"
         else:
-            exit_message = " (Exit Code: "+ line_exec[0] + ")"
+            exit_message = " (Exit Code: "+ str(line_exec[0]) + ")"
 
         _print(args, "\t" + line_exec[1] + exit_message)
         for line in line_exec[2].splitlines():
